@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
 
 aspectjx {
-    //includes the libs that you want to weave
-//    includeJarFilter 'universal-image-loader', 'AspectJX-Demo/library'
+    // includes the libs that you want to weave
+    // includeJarFilter 'universal-image-loader', 'AspectJX-Demo/library'
 
-    //excludes the libs that you don't want to weave
-//    excludeJarFilter 'universal-image-loader'
+    // excludes the libs that you don't want to weave
+    // excludeJarFilter 'universal-image-loader'
 }
 
 android {
@@ -47,4 +47,11 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     testCompile 'junit:junit:4.12'
+    testCompile('org.robolectric:robolectric:3.0') {
+        exclude module: 'commons-logging'
+    }
+}
+
+tasks.withType(Test) {
+    systemProperty "java.library.path", '.externalNativeBuild/cmake/debug/obj/armeabi'
 }
