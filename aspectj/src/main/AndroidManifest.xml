@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="li.readme.android.aspectj">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="li.readme.android.aspectj"
+          tools:overrideLibrary="li.readme.android.aspectj">
 
     <application
         android:allowBackup="true"

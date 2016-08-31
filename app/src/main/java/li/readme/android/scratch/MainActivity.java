@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends BaseActivity {
+  private static final String TAG = "MainActivity";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     TextView helloWorld = (TextView) findViewById(R.id.hello_world);
-    helloWorld.setText(stringFromJNI());
     helloWorld.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -41,16 +41,5 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(MainActivity.this, SubActivity.class).putExtra(SubActivity.KEY_FINISH, SubActivity.FINISH_ONRESUME));
       }
     });
-  }
-
-  /**
-   * A native method that is implemented by the 'native-lib' native library,
-   * which is packaged with this application.
-   */
-  public native String stringFromJNI();
-
-  // Used to load the 'native-lib' library on application startup.
-  static {
-    System.loadLibrary("native-lib");
   }
 }
