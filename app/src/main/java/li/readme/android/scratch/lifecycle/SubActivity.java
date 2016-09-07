@@ -1,4 +1,4 @@
-package li.readme.android.scratch;
+package li.readme.android.scratch.lifecycle;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
