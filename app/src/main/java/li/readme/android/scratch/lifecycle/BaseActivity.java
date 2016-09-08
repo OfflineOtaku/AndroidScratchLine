@@ -5,7 +5,8 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import li.readme.android.aspectj.Loggable;
+import li.readme.android.scratch.commons.log.Loggable;
+
 
 /**
  * Created by August on 8/25/16.

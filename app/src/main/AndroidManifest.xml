@@ -13,12 +13,21 @@
         <activity android:name=".lifecycle.MainActivity"/>
         <activity android:name=".lifecycle.SubActivity"/>
         <activity android:name=".launchmode.StandardModeActivity"/>
+        <activity
+            android:name=".launchmode.StandardModeWithAllowReparentActivity"
+            android:allowTaskReparenting="true">
+        </activity>
         <activity android:name=".launchmode.LaunchModeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".launchmode.OtherTaskActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="li.readme.android.othertask">
         </activity>
     </application>
 

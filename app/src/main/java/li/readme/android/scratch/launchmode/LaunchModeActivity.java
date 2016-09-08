@@ -9,11 +9,7 @@ import li.readme.android.scratch.lifecycle.BaseActivity;
 
 public class LaunchModeActivity extends BaseActivity {
 
-  /**
-   * <pre>
-   *   dumpsys activity a | sed -n '/Running activities/,/^[[:space:]]*$/p'
-   * </pre>
-   */
+  // dumpsys activity a | sed -n '/Main stack:/,/^[[:space:]]*$/p' | sed -n '/^[[:space:]]*\*/p'
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -22,6 +18,13 @@ public class LaunchModeActivity extends BaseActivity {
       @Override
       public void onClick(View v) {
         startActivity(new Intent(LaunchModeActivity.this, StandardModeActivity.class));
+      }
+    });
+    findViewById(R.id.other_task).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startActivity(new Intent(LaunchModeActivity.this, OtherTaskActivity.class).addFlags
+            (Intent.FLAG_ACTIVITY_NEW_TASK));
       }
     });
   }

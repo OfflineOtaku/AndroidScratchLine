@@ -17,7 +17,7 @@ public class ActivityLogger {
   @Pointcut("execution(* li.readme.android.scratch..*.*(..))")
   public void pointcutWithinPackage() {}
 
-  @Pointcut("within(@li.readme.android.aspectj.Loggable *)")
+  @Pointcut("within(@li.readme.android.scratch.commons.log.Loggable *)")
   public void pointcutLoggable() {}
 
   @Pointcut("execution(* *.onCreate(..))" +
@@ -32,7 +32,8 @@ public class ActivityLogger {
   @Pointcut("execution(* *.finish(..))")
   public void pointcutFinish() {}
 
-  @After("pointcutWithinPackage() && pointcutLoggable() && (pointcutLifecycleMethod() || pointcutFinish())")
+  @After("pointcutWithinPackage() && pointcutLoggable() && (pointcutLifecycleMethod() || " +
+      "pointcutFinish())")
   public void onCallLifecycleMethod(JoinPoint joinPoint) throws Throwable {
     Log.i(TAG, "onCallLifecycleMethod: "
         + joinPoint.getTarget().getClass().getCanonicalName()
